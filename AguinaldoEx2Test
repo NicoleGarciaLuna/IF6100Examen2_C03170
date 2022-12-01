@@ -1,0 +1,78 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
+ */
+package aguinaldoex2;
+
+import java.time.LocalDateTime;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Nicole
+ */
+public class AguinaldoEx2Test {
+    
+    public AguinaldoEx2Test() {
+    }
+
+    @Test
+    public void testFindbonus1() {
+        System.out.println("findbonus 1");
+        LocalDateTime startDate =   LocalDateTime.of(2024, 07, 12, 14, 33, 48, 123456789);
+        LocalDateTime endDate = LocalDateTime.of(2020, 12, 01, 14, 33, 48, 123456789);
+        float amount = 310000;
+        float expResult = -1;
+        float result = AguinaldoEx2.findbonus(startDate, endDate, amount);
+        assertEquals(expResult, result, 0);
+      //fail("The test case is a prototype.");
+    }
+    
+@Test
+        public void testFindbonus2() {
+        System.out.println("findbonus 2");
+        LocalDateTime startDate =   LocalDateTime.of(2021, 12, 12, 14, 33, 48, 123456789);
+        LocalDateTime endDate = LocalDateTime.of(2022, 11, 30, 14, 33, 48, 123456789);
+        float amount = 280000;
+        float expResult = -2;
+        float result = AguinaldoEx2.findbonus(startDate, endDate, amount);
+        assertEquals(expResult, result, 0);
+      //fail("The test case is a prototype.");
+    }
+
+        @Test
+         public void testFindbonus3() {
+        System.out.println("findbonus 3");
+        LocalDateTime startDate =   LocalDateTime.of(2021, 07, 03, 14, 33, 48, 123456789);
+        LocalDateTime endDate = LocalDateTime.of(2022, 11, 30, 14, 33, 48, 123456789);
+        float amount = 300000;
+        float expResult = -3;
+        float result = AguinaldoEx2.findbonus(startDate, endDate, amount);
+        assertEquals(expResult, result, 0);
+      //fail("The test case is a prototype.");
+    }
+         
+    @Test
+    public void testBonus() {
+        System.out.println("bonus");
+        long moth = 12;
+        float amount = 300000;
+        float expResult = 300000;
+        float result = AguinaldoEx2.bonus(moth, amount);
+        assertEquals(expResult, result, 0);
+        //fail("The test case is a prototype.");
+    }
+
+    
+    @Test
+    public void testMain() {
+        System.out.println("main");
+        String[] args = null;
+        AguinaldoEx2.main(args);
+        //fail("The test case is a prototype.");
+    }
+    
+}
