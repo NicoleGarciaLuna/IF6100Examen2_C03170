@@ -15,46 +15,61 @@ import static org.junit.Assert.*;
  * @author Nicole
  */
 public class AguinaldoEx2Test {
-    
+
     public AguinaldoEx2Test() {
     }
 
+    //En este Test la fecha inicial es posterior (después) de la fecha fin dada para el cálculo del bono
     @Test
     public void testFindbonus1() {
         System.out.println("findbonus 1");
-        LocalDateTime startDate =   LocalDateTime.of(2024, 07, 12, 14, 33, 48, 123456789);
+        LocalDateTime startDate = LocalDateTime.of(2024, 07, 12, 14, 33, 48, 123456789);
         LocalDateTime endDate = LocalDateTime.of(2020, 12, 01, 14, 33, 48, 123456789);
         float amount = 310000;
         float expResult = -1;
         float result = AguinaldoEx2.findbonus(startDate, endDate, amount);
         assertEquals(expResult, result, 0);
-      //fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
-    
-@Test
-        public void testFindbonus2() {
+    //En este Test el monto brindado es menor a 300 000
+    @Test
+    public void testFindbonus2() {
         System.out.println("findbonus 2");
-        LocalDateTime startDate =   LocalDateTime.of(2021, 12, 12, 14, 33, 48, 123456789);
+        LocalDateTime startDate = LocalDateTime.of(2021, 12, 12, 14, 33, 48, 123456789);
         LocalDateTime endDate = LocalDateTime.of(2022, 11, 30, 14, 33, 48, 123456789);
         float amount = 280000;
         float expResult = -2;
         float result = AguinaldoEx2.findbonus(startDate, endDate, amount);
         assertEquals(expResult, result, 0);
-      //fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
-
-        @Test
-         public void testFindbonus3() {
+    //En este Test la fecha inicial es antes del 01 de diciembre de un ano anterior a la fecha final para calcular el bono
+    @Test
+    public void testFindbonus3() {
         System.out.println("findbonus 3");
-        LocalDateTime startDate =   LocalDateTime.of(2021, 07, 03, 14, 33, 48, 123456789);
+        LocalDateTime startDate = LocalDateTime.of(2021, 07, 03, 14, 33, 48, 123456789);
         LocalDateTime endDate = LocalDateTime.of(2022, 11, 30, 14, 33, 48, 123456789);
         float amount = 300000;
         float expResult = -3;
         float result = AguinaldoEx2.findbonus(startDate, endDate, amount);
         assertEquals(expResult, result, 0);
-      //fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
-         
+    
+    //En este Test se calcula un bonus, no devuelve los códigos -1, -2 o -3
+    @Test
+    public void testFindbonus4() {
+        System.out.println("findbonus 4");
+        LocalDateTime startDate = LocalDateTime.of(2023, 12, 01, 14, 33, 48, 123456789);
+        LocalDateTime endDate = LocalDateTime.of(2024, 11, 30, 14, 33, 48, 123456789);
+        float amount = 300000;
+        float expResult = 300000;
+        float result = AguinaldoEx2.findbonus(startDate, endDate, amount);
+        assertEquals(expResult, result, 0);
+        //fail("The test case is a prototype.");
+    }
+
+    //Se calcula el bonus
     @Test
     public void testBonus() {
         System.out.println("bonus");
@@ -66,7 +81,6 @@ public class AguinaldoEx2Test {
         //fail("The test case is a prototype.");
     }
 
-    
     @Test
     public void testMain() {
         System.out.println("main");
@@ -74,5 +88,5 @@ public class AguinaldoEx2Test {
         AguinaldoEx2.main(args);
         //fail("The test case is a prototype.");
     }
-    
+
 }
